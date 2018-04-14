@@ -3,14 +3,6 @@ kind: BuildConfig
 metadata:
   name: tumblr
 spec:
-  triggers:
-    - type: ConfigChange
-    - generic:
-        secret: s3cret
-      type: Generic
-    - github:
-        secret: s3cret
-      type: GitHub
   source:
     git:
       ref: master
