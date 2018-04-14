@@ -23,3 +23,7 @@ spec:
         name: 'jboss-webserver31-tomcat8-openshift:1.1'
         namespace: openshift
     type: Source
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'tumblr:latest'
