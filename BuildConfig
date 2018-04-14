@@ -1,0 +1,25 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: tumblr
+spec:
+  triggers:
+    - type: ConfigChange
+    - generic:
+        secret: s3cret
+      type: Generic
+    - github:
+        secret: s3cret
+      type: GitHub
+  source:
+    git:
+      ref: master
+      uri: 'https://github.com/hardcorepink/tumblr.git'
+    type: Git
+  strategy:
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        name: 'jboss-webserver31-tomcat8-openshift:1.1'
+        namespace: openshift
+    type: Source
